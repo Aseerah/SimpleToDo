@@ -117,9 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 if (inputInt >= array.size()) {// checking if the index entered is  larger than the array
                     Toast.makeText(MainActivity.this, "index not found", Toast.LENGTH_SHORT).show();
 
-                } else if (array.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "You don't have any task to remove", Toast.LENGTH_SHORT).show();
-
                 } else if (inputString.isEmpty() == true) { // check if there isnt any input by user
                     Toast.makeText(MainActivity.this, "Please enter something", Toast.LENGTH_SHORT).show();
 
