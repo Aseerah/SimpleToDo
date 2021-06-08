@@ -111,21 +111,20 @@ public class MainActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int inputInt = Integer.parseInt(inputTask.getText().toString());
-                String inputString = inputTask.getText().toString();
-
-                if (inputInt >= array.size()) {// checking if the index entered is  larger than the array
-                    Toast.makeText(MainActivity.this, "index not found", Toast.LENGTH_SHORT).show();
-
-                } else if (inputString.isEmpty() == true) { // check if there isnt any input by user
-                    Toast.makeText(MainActivity.this, "Please enter something", Toast.LENGTH_SHORT).show();
-
-                } else if (array.size() == 0) { // check if the isnt anything stored that needs  to be deleted
+                if (array.isEmpty() == true) {
                     Toast.makeText(MainActivity.this, "You don't have any task to remove", Toast.LENGTH_SHORT).show();
                 } else {
-                    array.remove(inputInt);
-                    inputTask.setText("");
+
+                    if (inputTask.getText().toString().isEmpty() == true) {
+                        Toast.makeText(MainActivity.this, "Please add something", Toast.LENGTH_SHORT).show();
+                    } else if (Integer.parseInt(inputTask.getText().toString()) >= array.size()) {
+                        Toast.makeText(MainActivity.this, "index not found", Toast.LENGTH_SHORT).show();
+                    } else {
+                        array.remove(Integer.parseInt(inputTask.getText().toString()));
+                        inputTask.setText("");
+                    }
                 }
+
                 adapter.notifyDataSetChanged();
 
             }
